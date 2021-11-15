@@ -1,19 +1,35 @@
 {% load static %}
 <html>
     <head>
-        <title>Django Girls blog</title>
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    	<meta charset="utf-8">
+        <title>Django blog</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+       	<link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
     </head>
     <body>
-        <div>
-            <h1>Hello</h1>
-        </div>
-        {% block content %}
-
-
-
-
-        
-        {% endblock %}
+    	<div>
+    		<img id="background" src="https://spiritanroma.org/wp-content/uploads/2018/01/world-news.jpg" alt="">
+    	</div>
+    	<header>
+    		<h1 id="name">NED news</h1>
+    	</header>
+        <div class="form">
+	        {% for post in posts %}
+	            <div class="post">
+	            	<div class="posttitle">
+	                	<h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+	                </div>
+	                <div class="postdate">        
+	                    <b>{{ post.published_date }}</b>
+	                    <hr>
+	                </div>
+	                <div class="postcontent">
+	                		<p>{{ post.text|linebreaksbr }}</p>
+	                </div>
+	                <img src="{{ post.img.url }}" alt="">
+	            </div>
+	    	{% endfor %}
+    	</div>
     </body>
 </html>
