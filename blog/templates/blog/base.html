@@ -5,35 +5,41 @@
         <title>Django blog</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-       	<link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
+       	<link rel="stylesheet" href="/static/css/blog.css?{% now "U" %}"/>
     </head>
     <body>
     	<div>
-    		<img id="background" src="https://spiritanroma.org/wp-content/uploads/2018/01/world-news.jpg" alt="">
+    		<img id="background" src="https://i.ytimg.com/vi/lklDJ5VRQao/maxresdefault.jpg" alt="">
     	</div>
     	<header>
-    		<h1 id="name">NED news</h1>
+    		<h1 id="name"><b>NED</b><i>Flip</i></h1>
     	</header>
-        <div class="form">
-        	<form action="{% url 'search' %}" method="get">
-        		<input type="text" name="search">
-        		<input type="submit" value="search">
-        	</form>
-	        {% for post in posts %}
-	            <div class="post">
-	            	<div class="posttitle">
-	                	<h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-	                </div>
-	                <div class="postdate">        
-	                    <b>{{ post.published_date }}</b>
-	                    <hr>
-	                </div>
-	                <div class="postcontent">
-	                		<p>{{ post.text|linebreaksbr }}</p>
-	                </div>
-	                <img src="{{ post.img.url }}" alt="">
-	            </div>
-	    	{% endfor %}
+    	<div class="main">
+    		<div class="mini_header">
+    			<div class="header_text">
+	    			<h1>Meme templates</h1>
+    			</div>
+    			<div class="searchbar">
+			        <form action="{% url 'search' %}" method="get">
+			        	<input id="searchfield" type="text" name="search" placeholder="Search..">
+			        	<input id="searchbutton" type="submit" value="search">
+			        </form>
+		        </div>
+		        <div class="header_text_2">
+		        	<h3>Custumize your own memes and create something to share for your friends, colleges or just someone you know and have a good laugh at it!</h3>
+		        </div>
+	        </div>
+	        <div class="form">
+		        {% for post in posts %}
+		            <div class="post">
+		            	<div class="posttitle">
+		                	<h1><b>{{ post.title }}<b></h1>
+		                </div>
+		                <img src="{{ post.img.url }}" alt="">
+		                <a href="{% url 'post_detail' pk=post.pk %}">Add Caption</a>
+		            </div>
+		    	{% endfor %}
+	    	</div>
     	</div>
     </body>
 </html>

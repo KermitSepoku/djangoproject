@@ -7,10 +7,14 @@ body{
 	position: fixed;
 }
 header{
-	background-color: rgb(255, 255, 255, 0.7);
+	background-color: rgb(255, 255, 77, 0.7);
 	position: relative;
 	padding: 20px;
 	margin-bottom: 25px;
+}
+
+header i{
+	color: red;
 }
 #name{
 	font-size: 50px;
@@ -18,11 +22,47 @@ header{
 	display: flex;
 	justify-content: center;
 }
-.form{
-	background-color: rgb(255, 255, 255, 0.7);
+.main{
+	background-color: rgb(255, 255, 77, 0.7);
 	width: 85%;
 	margin: auto;
 	padding: 20px;
+	position: relative;
+}
+.mini_header{
+	display: flex;
+	flex-wrap: wrap;
+	margin: auto;
+	width: 88%;
+	padding: 10px;
+	background-color: rgb(255, 204, 204);
+	position: relative;
+	justify-content: space-between;
+}
+.header_text{
+	position: relative;
+}
+.searchbar{
+	width: 35%;
+	position: relative;
+}
+
+#searchfield{
+	height: 5%;
+	width: 65%;
+}
+
+#searchbutton{
+	width: 30%;
+	height: 5%;
+}
+
+.header_text_2{
+
+	position: relative;
+}
+
+.form{
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
@@ -36,7 +76,6 @@ header{
 	border: 1px solid black;
 	position: relative;
 	align-self: flex-start;
-
 }
 .posttitle{
 	margin-bottom: 10px;

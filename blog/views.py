@@ -21,4 +21,5 @@ class Search(ListView):
 	def get_contexr_data(self, *,object_list = None, **kwargs):
 		return super().get.context_data(**kwargs)
 
+
 		
