@@ -8,6 +8,12 @@
        	<link rel="stylesheet" href="/static/css/blog.css?{% now "U" %}"/>
     </head>
     <body>
+    	{% if request.user.is_authenticated %}
+    	<a href="{% url 'logout' %}">log out</a>
+    	{% else %}
+    	<a href="{% url 'register' %}">Registration</a>
+    	<a href="{% url 'login' %}">Login</a>
+    	{% endif %}
     	<div>
     		<img id="background" src="https://i.ytimg.com/vi/lklDJ5VRQao/maxresdefault.jpg" alt="">
     	</div>
@@ -17,7 +23,7 @@
     	<div class="main">
     		<div class="mini_header">
     			<div class="header_text">
-	    			<h1>Meme templates</h1>
+	    			<h1><b>Meme templates</b></h1>
     			</div>
     			<div class="searchbar">
 			        <form action="{% url 'search' %}" method="get">
@@ -26,7 +32,7 @@
 			        </form>
 		        </div>
 		        <div class="header_text_2">
-		        	<h3>Custumize your own memes and create something to share for your friends, colleges or just someone you know and have a good laugh at it!</h3>
+		        	<h3>Customize your own memes and create something to share for your friends, colleges or just someone you know and have a good laugh at it!</h3>
 		        </div>
 	        </div>
 	        <div class="form">
@@ -35,6 +41,7 @@
 		            	<div class="posttitle">
 		                	<h1><b>{{ post.title }}<b></h1>
 		                </div>
+		                <hr>
 		                <img src="{{ post.img.url }}" alt="">
 		                <a href="{% url 'post_detail' pk=post.pk %}">Add Caption</a>
 		            </div>
